@@ -1,16 +1,16 @@
 import sys
 
-from PyQt5 import uic
+from UI import Ui_Form
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtCore import QPointF
 from random import randint
 
 
-class Circle(QWidget):
+class Circle(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.draw)
         self.r = 0
         self.lst = []
