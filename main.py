@@ -18,15 +18,16 @@ class Circle(QWidget):
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        qp.setBrush(QColor('yellow'))
         for i in self.lst:
-            qp.drawEllipse(*i)
+            qp.setBrush(i[1])
+            qp.drawEllipse(*i[0])
         qp.end()
 
     def draw(self):
         r = randint(5, 100)
         p = QPointF(randint(30, 370), randint(30, 370))
-        self.lst.append((p, r, r))
+        c = QColor(*(randint(0, 255) for _ in range(3)))
+        self.lst.append(((p, r, r), c))
         self.update()
 
 
